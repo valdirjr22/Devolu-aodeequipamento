@@ -260,7 +260,7 @@
             const termo = `
 Eu, ${nome} portador do CPF ${cpf},Aluno do curso ${curso}, de Matrícula ${matricula} na Instituição Senac Paulista, da Turma/Turno ${turma}/${turno}, no ano letivo de 2024. Devolvo o equipamento à Instituição nas condições descritas abaixo, no mesmo estado em que o recebi no início do ano letivo, em plenas condições de funcionamento.
 
-• Equipamento: ${equipamento} COM SEU CARREGADOR
+• Equipamento: ${equipamento} com seu Carregador
 • Marca/Modelo: Samsung / KT3BR
 • Número de Série: ${numeroSerie}
 
