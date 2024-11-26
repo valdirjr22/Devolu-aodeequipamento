@@ -1,4 +1,4 @@
-<Devolução de Equipamentos>
+<Devolução de Equipamento>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -129,6 +129,12 @@
             .termo-container button {
                 display: none;
             }
+            .form-container, .cursos-cadastrados, .filtro-container {
+                display: none;
+            }
+            h1 {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -183,13 +189,11 @@
         <label for="filtroTurma">Filtrar por Turma:</label>
         <select id="filtroTurma" onchange="filtrarLista()">
             <option value="">Todas as turmas</option>
-            <!-- Turmas serão carregadas dinamicamente -->
         </select>
 
         <label for="filtroTurno">Filtrar por Turno:</label>
         <select id="filtroTurno" onchange="filtrarLista()">
             <option value="">Todos os turnos</option>
-            <!-- Turnos serão carregados dinamicamente -->
         </select>
     </div>
 
@@ -215,7 +219,6 @@
     <script>
         let alunoEditandoIndex = null;
 
-        // Função para gerar o termo de devolução
         function gerarTermo(event) {
             event.preventDefault();
 
@@ -263,22 +266,25 @@ Aluno do curso ${curso}, de Matrícula ${matricula} na Instituição Senac Pauli
 
 • Equipamento: ${equipamento} COM SEU CARREGADOR
 • Marca/Modelo: Samsung / KT3BR
-• Número de série: ${numeroSerie}
+• Número de Série: ${numeroSerie}
 
-Além disso, confirmo que o equipamento está acompanhado do seu carregador, e que nenhum dano foi causado durante o período de uso. Em caso de danos ou extravios, comprometo-me em arcar com os custos de reparo ou reposição do equipamento, conforme estabelecido em contrato no ato do início do ano letivo.
+Declaro também que, caso haja danos ou extravio do equipamento durante o período de uso, comprometo-me a arcar com os custos de reparo ou reposição do equipamento, conforme estabelecido em contrato.
+
+ASSINATURA DO ALUNO
+
+____________________________________________________
+
+ASSINATURA DO REPRESENTANTE DA INSTITUIÇÃO
+
+Nome:_____________________________________________
+
+Cargo: _____________________________________________
+
+Paulista, ______ de ____________________ de 2024.
             `;
 
             document.getElementById("termoTexto").textContent = termo;
             document.getElementById("termoContainer").style.display = 'block';
-        }
-
-        function imprimirTermo() {
-            window.print();
-        }
-
-        function mostrarLista() {
-            document.querySelector('.filtro-container').style.display = 'block';
-            listarAlunos();
         }
 
         function listarAlunos() {
@@ -301,7 +307,6 @@ Além disso, confirmo que o equipamento está acompanhado do seu carregador, e q
                 `;
             });
 
-            // Preenche os filtros de turma e turno
             preencherFiltros(alunos);
         }
 
@@ -309,11 +314,9 @@ Além disso, confirmo que o equipamento está acompanhado do seu carregador, e q
             const filtroTurma = document.getElementById("filtroTurma");
             const filtroTurno = document.getElementById("filtroTurno");
 
-            // Limpa as opções anteriores
             filtroTurma.innerHTML = "<option value=''>Todas as turmas</option>";
             filtroTurno.innerHTML = "<option value=''>Todos os turnos</option>";
 
-            // Preenche as opções únicas de turma e turno
             const turmas = [...new Set(alunos.map(a => a.turma))];
             const turnos = [...new Set(alunos.map(a => a.turno))];
 
@@ -337,14 +340,12 @@ Além disso, confirmo que o equipamento está acompanhado do seu carregador, e q
             const filtroTurno = document.getElementById("filtroTurno").value;
             const alunos = JSON.parse(localStorage.getItem('alunos')) || [];
 
-            // Filtra os alunos com base nos filtros selecionados
             const alunosFiltrados = alunos.filter(aluno => {
                 const turmaMatch = filtroTurma ? aluno.turma === filtroTurma : true;
                 const turnoMatch = filtroTurno ? aluno.turno === filtroTurno : true;
                 return turmaMatch && turnoMatch;
             });
 
-            // Exibe os alunos filtrados na tabela
             const tabelaAlunos = document.getElementById("tabelaAlunos").getElementsByTagName("tbody")[0];
             tabelaAlunos.innerHTML = "";
 
@@ -378,7 +379,7 @@ Além disso, confirmo que o equipamento está acompanhado do seu carregador, e q
             document.getElementById("numeroSerie").value = aluno.numeroSerie;
 
             alunoEditandoIndex = index;
-            document.getElementById("submitButton").textContent = "Salvar Edição";
+            document.getElementById("submitButton").textContent = "Editar Devolução";
         }
 
         function excluirAluno(index) {
@@ -388,8 +389,11 @@ Além disso, confirmo que o equipamento está acompanhado do seu carregador, e q
             listarAlunos();
         }
 
-        // Carrega os alunos ao carregar a página
-        listarAlunos();
+        function imprimirTermo() {
+            window.print();
+        }
+
+        window.onload = listarAlunos;
     </script>
 
 </body>
