@@ -271,18 +271,12 @@ Aluno do curso ${curso}, de Matrícula ${matricula} na Instituição Senac Pauli
 Além disso, confirmo que o equipamento está acompanhado do seu carregador, e que nenhum dano foi causado durante o período de uso. Em caso de danos ou extravios, comprometo-me em arcar com os custos de reparo ou reposição do equipamento, conforme estabelecido em contrato no ato do início do ano letivo.
 Assim, a presente devolução é feita com a anuência do Senac Paulista.
 
-
              ASSINATURA DO ALUNO
-
-____________________________________________________
-
+___________________________________________________
 
 ASSINATURA DO REPRESENTANTE DA INSTITUIÇÃO
-
 Nome:_____________________________________________
-
 Cargo: ___________________________________________
-
 
 Paulista, ______ de ____________________ de 2024.
             `;
