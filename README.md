@@ -269,9 +269,9 @@ Além disso, confirmo que o equipamento está acompanhado do seu carregador, e q
              ASSINATURA DO ALUNO
 ___________________________________________________
 
-ASSINATURA DO REPRESENTANTE DA INSTITUIÇÃO
-Nome:_____________________________________________
-Cargo: ___________________________________________
+REPRESENTANTE DA INSTITUIÇÃO
+Valdir Rodrigues da Silva Junior
+Monitor de TI
 
 Paulista, ______ de ____________________ de 2024.
             `;
